@@ -624,7 +624,7 @@ body, .destination-container{
 	        animation: slide-left 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both !important;
 }
 
-@keyframes slide-out-right {
+@keyframes slide-out-right{
     0% {
       -webkit-transform: translateX(0);
               transform: translateX(0);
