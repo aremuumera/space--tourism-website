@@ -10,7 +10,6 @@ body{
     padding: 0;
     box-sizing: border-box;
     font-family: 'Barlow', sans-serif;
-    overflow: hidden ;
 }
 
 header{
@@ -30,27 +29,49 @@ nav ul{
 nav{
     /* background: red; */
     width: 100%;
-    backdrop-filter: blur(50px);
+    backdrop-filter: blur(50px)!important;
     background: rgba(14, 14, 57, 0.256);
     padding: 30px 30px 30px;
     border-radius: 15px;
+    display: block;
 }
 nav ul li a{
     color: #fff;
     font-size: 1.3rem;
     position: relative;
     cursor: pointer;
+    
 }
-nav ul li .active:before{
+.not-active{
+    border-bottom:2px solid #fff !important;
+    padding-bottom: 40px !important;
+}
+.l-active{
+    border-bottom:2px solid #fff ;
+    padding-bottom: 40px;
+}
+
+/* nav ul li .active::before{
     position: absolute;
     height: 3px;
     background: #fff;
     content: '';
     top: 250%;
     width: 100%;
+    display: block;
     
 }
-nav ul li a:hover:before{
+nav ul li a::before{
+    position: absolute;
+    height: 3px;
+    background: #fff;
+    content: '';
+    top: 250%;
+    width: 100%;
+    display: none ;
+} */
+
+/* nav ul li a:hover:before{
     position: relative;
     transition: transform 1s ease-in-out ; 
 }
@@ -64,7 +85,7 @@ nav ul li a:hover:before{
     right: 15%;
     width: 70%;
     transform:scale(1.2); 
-}
+} */
 .logo{
     position: relative;
 }
@@ -91,22 +112,26 @@ nav ul li a:hover:before{
     margin: 0 !;
     padding: 0;
 }
+nav ul li .nav-active{
+    display: block !important;
+}
 
 /* home page starts */
-.home-container{
+body, .home-container{
     background:url(./assets/home/background-home-desktop.jpg) !important;
     background-position: center;
     background-repeat: no-repeat; 
     background-size: cover; 
-    height: 100vh;
+    height: 100vh !important;
     width: 100%;
    
 
     .hero-container{
-        padding: 150px 120px 30px;
-        display: flex;
+        padding: 140px 120px 0px;
+        display: flex !important;
         align-items: flex-end;
-        justify-content: space-between;
+        justify-content: space-between !important ;
+        /* flex-direction: row!important; */
     }
     .hero-content{
        max-width: 600px;
@@ -167,12 +192,12 @@ nav ul li a:hover:before{
 
 /* destination page starts */
 
-.destination-container{
+body, .destination-container{
     background: url(./assets/destination/background-destination-desktop.jpg);
     background-position: center;
     background-repeat: no-repeat; 
     background-size: cover; 
-    height: 100vh !important;
+    height: 100% !important;
     width: 100%;
 
     .nav-container nav{
@@ -184,7 +209,7 @@ nav ul li a:hover:before{
         border-radius: 15px; */
     }
     .destination-heading-container{
-        padding: 110px 120px 0px;
+        padding: 100px 120px 100px !important;
         
     }
 
@@ -311,7 +336,7 @@ nav ul li a:hover:before{
     background-position: center;
     background-repeat: no-repeat; 
     background-size: cover; 
-    height: 100vh !important;
+    height: 100% !important;
     width: 100%;
  
    
@@ -323,10 +348,13 @@ nav ul li a:hover:before{
         /* padding: 30px 30px 30px;
         border-radius: 15px; */
     }
-    
     .crew-hero-container{
-        padding: 40px 160px 0px;
+        padding: 40px 160px 100px;
+    }
+    
+    .crew-hero{
         display: flex;
+        justify-content: space-around;
         gap: 200px;
         
     }
@@ -338,31 +366,33 @@ nav ul li a:hover:before{
     .crew-content-cont{
         max-width: 600px;
         width: 100%;
+        display: block;
+        /* flex-direction: column-reverse; */
     }
     .crew-content-cont h1{
         font-size: 3.5rem;
         font-weight: 500;
         color: #fff;
-        margin: 20px 0px 40px;
+        margin: 20px 0px 20px;
         font-family: 'Bellefair', serif;
     }
-    .crew-content-cont p:first-child{
+    .crew-hero-container p{
         color: #fff;
         line-height: 35px;
-        margin-bottom: 20px;
+        margin-bottom: 5px;
         font-size: 1.8rem;
         letter-spacing: 5px;
     }
-    .crew-content-cont p span{
+    .crew-hero-container p span{
         backdrop-filter: blur(5px);
         color: rgb(95, 94, 92) !important;
         margin-right: 10px;
         font-weight:500;
     }
-    .crew-content-cont p{
+    .crew-content-cont div p{
         color: #fff;
         line-height: 35px;
-        margin-bottom: 140px;
+        margin-bottom: 30px;
         font-size: 1.5rem;
     }
     .crew-links{
@@ -383,7 +413,7 @@ nav ul li a:hover:before{
         background: rgb(139, 139, 170)!important;
     }
     .crew-image img{
-        max-width: 450px;
+        max-width: 650px ;
         width: 100%;
         max-height: 600px;
         height: 100%;
@@ -392,22 +422,15 @@ nav ul li a:hover:before{
     
 }
 .crew-engineer{
+    height: 100%!important ;
     .crew-image img{
-        margin-top: 60px;
+        margin-top: 0px;
+    }
+    .crew-hero-container{
+        padding: 50px 160px 100px ;
     }
 }
-.crew-specialist{
-    .crew-content-cont p{
-        margin-bottom: 90px;
-        font-size: 1.5rem;
-    }
-}
-.crew-pilot{
-    .crew-content-cont p{
-        margin-bottom: 90px;
-        font-size: 1.5rem;
-    }
-}
+
 
 
                 /* crew container ends */
@@ -418,7 +441,7 @@ nav ul li a:hover:before{
     background-position: center;
     background-repeat: no-repeat; 
     background-size: cover; 
-    height: 100vh ;
+    height: 100%;
     width: 100%;
 
 
@@ -476,10 +499,10 @@ nav ul li a:hover:before{
         width: 100%;
     }
 .tech-image img{
-    /* max-width: 1400px;
+    max-width: 600px !important; 
     width: 100%;
-    max-height: 900px;
-    height: 100%; */
+    max-height: 500px !important;
+    height: 100%;
     border-radius: 20px;
 }
 .tech-content p:first-child{
@@ -500,7 +523,14 @@ nav ul li a:hover:before{
     line-height: 32px;
     margin: 0!important;
 }
-
+/* .leke{
+    background-color: #fff;
+    color: rgb(18, 18, 34) !important;
+} */
+.tech-li{
+    background-color: #fff !important;
+    color: rgb(18, 18, 34) !important;
+}
 }
 .tech-spaceport {
     .technology-container{
@@ -508,11 +538,6 @@ nav ul li a:hover:before{
     }
 }
                 /* TECHNOLOGY CONTAINER ENDS */
-
-
-
-
-
 
 
  /* animations  start*/
@@ -531,7 +556,6 @@ nav ul li a:hover:before{
               transform: rotate(360deg);
     }
   }
-
 
 
   .fade-in-bottom-a {
@@ -577,15 +601,47 @@ nav ul li a:hover:before{
     }
   }
   
+  
+  .slide-left {
+	-webkit-animation: slide-left 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-left .5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both !important;
+}
+
+@keyframes slide-left {
+    0% {
+      -webkit-transform: translateX(0);
+              transform: translateX(1300px);
+              /* opacity: 0 !important; */
+    }
+    100% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0) ;
+              /* opacity: 1 !important; */
+    }
+  }
+  .slide-out-right {
+	-webkit-animation: slide-left 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-left 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both !important;
+}
+
+@keyframes slide-out-right {
+    0% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+              opacity: 1 !important; 
+    }
+    100% {
+      -webkit-transform: translateX(0);
+              transform: translateX(-2000px);
+               opacity: 0 !important; 
+    }
+  }
  /* animation ends */
 
 
-
-
- /* resposiveness */
-
-
- @media screen and (max-width:1440px) and (min-width:1201px){
+ /* responsiveness */
+ @media screen and (max-width:1449px) and (min-width:1201px){
+    
     .nav-container{
         display: flex;
         gap: 300px;
@@ -594,72 +650,63 @@ nav ul li a:hover:before{
     nav ul{
         gap: 50px;
     }
-    .crew-hero-container{
-        padding: 40px 120px 0px !important;
-        display: flex;
-        gap: 60px;
+    .crew-container{
+        height: 100% !important;
+
+        .crew-hero-container{
+            padding: 40px 120px 120px !important;
+        }
+        .crew-hero{
+            display: flex;
+            justify-content: space-around;
+            /* gap: 100px; */
+        }
+        .crew-image img{
+            max-width: 450px;
+            width: 100%;
+            max-height: 600px;
+            height: 100%;
+            /* margin-top: 40px; */
+        }
+        
+        .crew-content-cont{
+            max-width: 450px !important;
+            width: 100%;
+        }
+        .crew-hero-container p{
+            color: #fff;
+            line-height: 35px;
+            margin-bottom: 0px !important;
+            font-size: 1.8rem;
+            letter-spacing: 5px;
+        }
+        .crew-content-cont div p{
+                margin-bottom: 40px !important;
+            }
+    }
+    .tech-page{
+        height: 100% !important;
+        .technology-container{
+            gap: 40px!important;
+            padding: 40px 70px 171px !important;
+            height: 100% !important;
+        }
+        .tech-image img{
+            max-width: 600px  !important;
+            width: 100%;
+            max-height: 500px !important;
+            height: 100%;
+            border-radius: 20px;
+        }
+        .destination-heading-container{
+            padding: 80px 60px 0px!important;
+            
+        }
     }
     .space-image img{
         max-width: 400px;
         width: 100%;
         margin:0px auto 0px 38px !important;
-    }
-    .crew-content-cont{
-        max-width: 450px !important;
-        width: 100%;
-    }
-    .crew-content-cont p:first-child{
-        color: #fff;
-        line-height: 35px;
-        margin-bottom: 0px !important;
-        font-size: 1.8rem;
-        letter-spacing: 5px;
-    }
-    .crew-content-cont p{
-            margin-bottom: 40px !important;
-        }
-    .crew-engineer{
-        .crew-image img{
-            margin-top: 110px!important;
-        }
-    }
-    .crew-image img{
-        margin-top: 110px !important;
-    }
-    .crew-specialist{
-        .crew-content-cont p:last-child{
-            margin-bottom: 0px ;
-            font-size: 1.5rem;
-        }
-        .crew-image img{
-            margin-top: 150px!important;
-        }
-        .crew-content-cont h1{
-            margin: 20px 0px 20px;
-        }
-    }
-    .crew-pilot{
-        .crew-content-cont p{
-            margin-bottom: 90px;
-            font-size: 1.5rem;
-        }
-        .crew-image img{
-            margin-top: 1550px;
-        }
-    }
-    .technology-container{
-        gap: 40px!important;
-    }
-    .tech-image img{
-        max-width: 600px;
-        width: 100%;
-        max-height: 500px;
-        height: 100%;
-        border-radius: 20px;
-    }
-    .destination-heading-container{
-        padding: 80px 60px 0px!important;
-        
     }
     .hero-container{
         padding: 80px 80px 30px;
@@ -683,18 +730,32 @@ nav ul li a:hover:before{
         z-index: 100;
         display: none;
     }
+    .home-container{
+
+        /* height: 100% !important; */
+        .hero-container{
+            padding: 80px 100px 0px !important;
+           
+        }
+        .hero-content-1{
+            margin-right: 0px !important;
+        }
+        .hero-content{
+            max-width: 500px!important;
+            width: 100%;
+         }
+        }
  }
 
-
-
-
- @media screen and (max-width:1201px) and (min-width:971px){
+ @media screen and (max-width:1200px) and (min-width:971px){
     .nav-container{
         display: flex;
         gap: 200px;
         align-items: center;
     }
-
+    header{
+        padding: 5px 0px 0px 120px !important;
+    }
     .logo:before{
         position: absolute;
         height: 1px;
@@ -710,46 +771,50 @@ nav ul li a:hover:before{
     nav ul{
         gap: 25px;
     }
-    .crew-hero-container{
-        padding: 40px 80px 0px !important;
-        display: flex;
-        gap: 30px !important;
-    }
-    .space-image img{
-        max-width: 400px;
-        width: 100%;
-        margin:0px auto 0px 38px !important;
-    }
-    .crew-content-cont{
-        max-width: 450px !important;
-        width: 100%;
-    }
-    .crew-content-cont p:first-child{
-        color: #fff;
-        line-height: 35px;
-        margin-bottom: 0px !important;
-        font-size: 1.8rem;
-        letter-spacing: 5px;
-    }
-    .crew-content-cont p{
-            margin-bottom: 40px !important;
-        }
-    .crew-engineer{
-        .crew-image img{
-            margin-top: 110px!important;
-        }
-    }
-    .crew-image img{
-        margin-top: 110px !important;
-    }
     .crew-container{
-        header{
-            padding: 60px 0px 0px 60px
+        .crew-hero-container{
+            padding: 40px 60px 50px!important
+        }
+        .crew-hero{    
+            display: flex;
+            gap: 30px !important;
+        }
+        .space-image img{
+            max-width: 400px;
+            width: 100%;
+            margin:0px auto 0px 38px !important;
+        }
+        
+        .crew-content-cont{
+            max-width: 450px !important;
+            width: 100%;
+        }
+        .crew-hero-container p{
+            color: #fff;
+            line-height: 35px;
+            margin-bottom: 0px !important;
+            font-size: 1.8rem;
+            letter-spacing: 5px;
+        }
+        .crew-content-cont div p{
+                margin-bottom: 40px !important;
+            }
+        .crew-engineer{
+            .crew-image img{
+                margin-top: 110px!important;
+            }
+        }
+        .crew-image img{
+            margin-top: 10px !important;
+        }
+        .crew-container{
+            header{
+                padding: 60px 0px 0px 60px
+            }
         }
     }
-
-    .crew-specialist{
-        .crew-content-cont p:last-child{
+    /* .crew-specialist{
+        .crew-hero-container p{
             margin-bottom: 0px ;
             font-size: 1.5rem;
         }
@@ -768,7 +833,8 @@ nav ul li a:hover:before{
         .crew-image img{
             margin-top: 1550px;
         }
-    }
+    } */
+
     .technology-container{
         gap: 40px!important;
     }
@@ -779,21 +845,52 @@ nav ul li a:hover:before{
         height: 100%;
         border-radius: 20px;
     }
-    .destination-heading-container{
-        padding: 80px 60px 0px!important;
-        
+    .destination-container{
+        .destination-heading-container{
+            padding: 80px 15px 100px !important;  
+        }
+        .space-image{
+            max-width: 500px;
+            width: 100%;
+        }
+        .space-content{
+            max-width: 600px;
+            width: 100%;
+            text-align: start;
+            max-height: 600px;
+            height: 100%;
+        }
+        .space-name{
+            gap: 20px;
+        }
+        .space-image h1{
+            text-align: center!important;
+        }
+        .space-image img{
+            margin:20px auto 0px 28px;
+        }
+        .space-image h1{
+            margin-bottom: 20px !important;
+        }
     }
-    .hero-container{
-        padding: 80px 40px 30px !important;
-        
-    }
-    .hero-content-1{
-        margin-right: 0px !important;
-    }
-    .hero-content{
-        max-width: 500px!important;
-        width: 100%;
-     }
+    
+    
+    .home-container{
+
+        /* height: 100%!important; */
+        .hero-container{
+            padding: 80px 80px 0px !important;
+            /* height: 100%!important; */
+        }
+        .hero-content-1{
+            margin-right: 0px !important;
+        }
+        .hero-content{
+            max-width: 500px!important;
+            width: 100%;
+         }
+        }
+    
 }
  @media screen and (max-width:970px){
     body{
@@ -814,25 +911,47 @@ nav ul li a:hover:before{
         display: none;
     }
     
+    /* .menu-act{
+        display: none !important;
+    }
+    .menu-active{
+        display: block;
+    } */
     nav{
-        display:none  ;
-        position: absolute !important;
+        display: none;
+        position: absolute!important;
         top: 0;
-        right: 0;
-        width: 50%;
-        height: 100vh;
-        backdrop-filter: blur(110px);
-        /* background-color: rgb(24, 24, 61); */
+        right: 0 !important;
+        width: 75% !important;
+        height: 100% !important;
+        backdrop-filter: blur(80px) !important;
+        background-color: rgb(24, 24, 61);
         z-index: 1000;
     }
-
     nav ul{
         display: flex;
         align-items: center;
         flex-direction:column ;
-        justify-content:center;
-        gap: 100px;
-        padding-top:150px ;
+        justify-content:center !important;
+        gap: 60px !important;
+        padding-top:90px !important;
+        /* width:75%!important; */
+        text-align: center!important;
+    }
+
+    nav ul li a{
+        text-align: center !important;
+        margin  : 0px auto 0px !important
+    }
+    .not-active{
+        display: none !important;
+        border-bottom:none !important;
+        padding-bottom: 40px !important;
+    }
+    .l-active{
+        
+        border-bottom:none !important;
+        padding-bottom: 40px;
     }
     .logo:before{
         position: absolute;
@@ -846,8 +965,8 @@ nav ul li a:hover:before{
         z-index: 100;
         display: none;
     }
-    .destination-container{
-
+    body, .destination-container{
+        height: 100% !important;
         .hero-container{
             display: flex;
             align-items:center !important;
@@ -863,7 +982,6 @@ nav ul li a:hover:before{
             margin-right: 0px;
             /* margin-bottom: 10px; */
             cursor: pointer;
-            
         }
         .hero-content h1{
             color: #fff;
@@ -874,7 +992,7 @@ nav ul li a:hover:before{
             margin: 8px 0px 20px;
         }
         header{
-            padding: 60px 0px 0px 30px;
+            padding: 60px 0px 0px 40px;
         }
         .destination-cont{
             display: flex !;
@@ -957,16 +1075,17 @@ nav ul li a:hover:before{
         background-position: center;
         background-repeat: no-repeat; 
         background-size: cover; 
+        height: 100%!important;
 
-        .crew-hero-container{
+        .crew-hero{
             display: flex;
             flex-direction: column-reverse !important;
-            justify-content: center !important;
             align-items: center !important;
             gap: 80px;
+            text-align: center;
         }
         header{
-            padding: 60px 0px 0px 30px;
+            padding: 60px 0px 0px 40px;
         }
         .crew-image img{
             max-width: 300px;
@@ -977,66 +1096,28 @@ nav ul li a:hover:before{
         }
         .crew-hero-container{
             padding: 30px 40px 0px;
-            display: flex;
-            gap: 90px;
+        }
+        .crew-hero-container p{
             text-align: center;
-            
+        }
+        .crew-content{
+            display: block !important;
         }
         .crew-content-cont{
             max-width: 500px;
             width: 100%;
+            display: flex;
+            flex-direction: column-reverse !important;
         }
         .crew-links{
             display: flex;
             gap: 20px;
-            align-items: center;
-            position: absolute;
-            top: 69%;
-            left: 40%;
-            /* transform: translate(10%, 90%); */
-
+            align-items: center !important;
+            justify-content: center;
        }
-       .crew-content-cont p:first-child{
-        position: absolute;
-        top: 11%;
-        
-       }
+    
     }
-       .crew-engineer{
-        .crew-image img{
-            margin-top: 60px;
-        }
-        .crew-links{
-            position: absolute;
-            top: 60%;
-            left: 40%;
-        }
-    }
-    .crew-specialist{
-        .crew-content-cont p{
-            margin-bottom: 90px;
-            font-size: 1.5rem;
-        }
-        .crew-links{
-            position: absolute;
-            top:75%;
-            left: 40%;
-        }
-    }
-    .crew-pilot{
-        .crew-content-cont p{
-            margin-bottom: 90px;
-            font-size: 1.5rem;
-        }
-        .crew-links{
-            position: absolute;
-            top: 65%;
-            left: 40%;
-        }
-
-    }
-
-
+ 
     .tech-page{
         height: 100%!important;
         background: url(./assets/technology/background-technology-desktop.jpg);
@@ -1053,7 +1134,7 @@ nav ul li a:hover:before{
             height: 100% !important;
     }
     header{
-        padding: 60px 0px 0px 30px;
+        padding: 60px 0px 0px 40px;
     }
     .tech-pages{
         display: flex;
@@ -1113,12 +1194,20 @@ nav ul li a:hover:before{
     background-position: center;
     background-repeat: no-repeat; 
     background-size: cover; 
+    height: 100% !important;
+
+
+    header{
+        padding: 60px 0px 0px 19px;
+    }
+
     .hero-container{
-        padding: 60px 60px 30px!important ;
+        padding: 60px 60px 100px!important ;
         display: flex;
         align-items: center;
         flex-direction: column;
         justify-content: space-between;
+
     }
     .hero-content{
         max-width: 600px;
@@ -1128,6 +1217,7 @@ nav ul li a:hover:before{
      .hero-content-1{
         text-align: center;
         margin: 0!important;
+        /* padding-bottom: 150px; */
      }
      .hero-content-1 h1{
         margin: 0   !important;
@@ -1141,5 +1231,402 @@ nav ul li a:hover:before{
         margin: 4px 0px 10px !important;
     }
 }
+ }
+ 
+ @media screen and (max-width:650px) and (min-width:435px) {
+    .crew-container{
+        .crew-hero{
+            padding: 40px 10px 0px !important;
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            gap: 90px;
+            text-align: center;
+     }
+     .crew-content-cont {
+       text-align: center;
+    }
+     .crew-content-cont h1{
+        font-size: 2.5rem;
+        font-weight: 500;
+        color: #fff;
+        margin: 20px 0px 40px;
+        font-family: 'Bellefair', serif;
+    }
+    }
+    
+}
 
+ @media screen and (max-width: 434px){
+    /* body{
+        overflow: scroll !important;
+        height: 100%;
+    } */
+    .destination-container, .crew-container, .tech-page {
+        height: 100% !important;
+    }
+    .menu{
+        display: block;
+        position: absolute;
+        transform: translate(-10%, -3%);
+        right: 6%;
+        z-index: 1000;
+    }
+    .menu svg:last-child{
+        display: none;
+    }
+    
+    nav{
+        display:none  ;
+        position: absolute !important;
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 100vh;
+        backdrop-filter: blur(110px);
+        /* background-color: rgb(24, 24, 61); */
+        z-index: 1000;
+    }
+
+    nav ul{
+        display: flex;
+        align-items: center;
+        flex-direction:column ;
+        justify-content:center;
+        gap: 100px;
+        padding-top:150px ;
+    }
+    .logo:before{
+        position: absolute;
+        height: 1px;
+        backdrop-filter: blur(50px);
+        background: #aeacac;
+        content: '';
+        top: 50%;
+        left: 150%;
+        width: 900%;
+        z-index: 100;
+        display: none;
+    }
+    .destination-container{
+        height: 100%;
+        .hero-container{
+            display: flex;
+            align-items:center !important;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px auto 20px !important;
+        }
+        .hero-content{
+            max-width: 550px!important;
+            width: 100%;
+         }
+         .hero-content-1{
+            margin-right: 0px;
+            /* margin-bottom: 10px; */
+            cursor: pointer;
+            
+        }
+        .hero-content h1{
+            color: #fff;
+            /* padding: 50px; */
+            font-size: 5rem !important;
+            font-weight: 400;
+            font-family: 'Bellefair', serif;
+            margin: 8px 0px 20px;
+        }
+        header{
+            padding: 30px 0px 0px 18px !important;
+        }
+        .destination-cont{
+            display: flex !;
+            align-items: center!important;
+            flex-direction: column !important;
+            gap: 30px !important;
+        }
+        .destination-heading-container{
+            padding: 10px 10px 100px !important;
+            text-align: center !important;
+            
+        }
+        .space-image img{
+            max-width: 250px !important;
+            width: 100%!important;
+            margin: 0px auto 0px !important;
+        }
+        .space-content{
+            max-width: 500px;
+            width: 100%;
+            text-align: center !important;
+            /* max-height: 600px; */
+            height: 100% !important;
+        }
+        .space-name{
+            display: flex !important;
+            align-items: center!important;
+            gap: 15px !important;
+            margin-top: 10px!important;
+            justify-content: center !important;
+        }
+        .space-content h1{
+            font-size: 6rem !important;
+            font-family: 'Bellefair', serif;
+            font-weight: 500;
+            margin: 30px 0px 30px !important;
+            padding: 0!important;
+            color: #fff;
+        }
+        .planet{
+            text-align: center !important;
+        }
+        .space-content p{
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 30px !important;
+            line-height: 35px;
+        }
+        .planet a{
+            color: #fff;
+            font-size: 1.3rem;
+            font-weight: 400;
+            line-height: 20px;
+            margin-left: 0;
+            padding-left:0 ;
+            position: relative;
+            text-align: center!important;
+        }
+        .distance-description{
+            position: relative;
+           display: flex;
+           justify-content: center !important;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .distance-description::before{
+            position: absolute !important;
+            content: '';
+            width: 100%;
+            background-color: #fff;
+            filter: blur(3px) !important;
+            height: 1px;
+            top: -1%;
+        }
+        .distance h2{
+            letter-spacing: 3px;
+        }
+        .space-content .distance p{
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 8px;
+    
+        }
+        .space-content p{
+            line-height: 25px;
+            margin-bottom: 5px !important;
+        }
+        .distance-description{
+            gap: 20px;
+        }
+
+    }
+    .crew-container{
+        background: url(./assets/crew/background-crew-tablet.jpg)!important;
+        background-position: center;
+        background-repeat: no-repeat; 
+        background-size: cover; 
+
+        .crew-hero{
+            display: flex;
+            flex-direction: column-reverse !important;
+            align-items: center !important;
+            text-align: center!important;
+            gap: 80px;
+        }
+        .crew-image img{
+            max-width: 300px;
+            width: 100%;
+            max-height: 600px;
+            height: 100%;
+            margin-top: 40px;
+        }
+        .crew-hero-container{
+            padding: 55px 10px 0px !important;
+        }
+        /* .crew-hero{
+            display: flex;
+            gap: 90px;
+        } */
+        .crew-content-cont{
+            max-width: 500px;
+            width: 100%;
+        }
+        .crew-hero-container p{
+        font-size: 1.4rem;
+        letter-spacing: 5px;
+        text-align: center !important;
+        }
+        .crew-links{
+            display: flex;
+            gap: 20px;
+            align-items: center;
+       }
+       /* .crew-content-cont p:first-child{
+        position: absolute;
+        top: 11%;
+       } */
+
+       .crew-content-cont h1{
+        font-size: 2.5rem;
+        font-weight: 500;
+        color: #fff;
+        margin: 20px 0px 40px;
+        font-family: 'Bellefair', serif;
+    }
+    
+    }
+       
+    
+    .tech-page{
+        height: 100%!important;
+        background: url(./assets/technology/background-technology-desktop.jpg);
+        background-position: center;
+        background-repeat: no-repeat; 
+        background-size: cover; 
+
+        .technology-container{
+            padding: 50px 15px 200px !important;
+            display: flex;
+            align-items: center !important;
+            flex-direction: column-reverse;
+            gap: 40px;
+            height: 100% !important;
+    }
+    header{
+        padding: 60px 0px 0px 20px !important;
+    }
+    .tech-pages{
+        display: flex;
+        gap: 30px;
+        text-align: center !important;
+        justify-content: center !important;
+        
+    }
+    .tech-image img{
+        max-width: 600px !important;
+        width: 100%;
+        max-height: 390px !important;
+        height: 100%;
+        border-radius: 20px;
+    }
+    .tech-cont{
+        display: block;
+        gap: 40px;
+        max-height:500px ;
+        width: 100%;
+        max-width: 650px !important;
+        width: 100%;
+    }
+    .tech-content{
+        text-align: center;
+        margin-bottom:160px !important;
+    }
+    .tech-content p:first-child{
+        color: #fff;
+        font-size: 1.3rem;
+        margin:0;
+    }
+    .tech-content p:last-child{
+        color: #fff;
+        font-size: 1.2rem;
+        line-height: 32px;
+        margin: 0!important;
+        padding-bottom:0px !important;
+    }
+    .tech-crew-container h1{
+        color: #fff;
+        font-size: 3.3rem;
+        font-family: 'Bellefair', serif;
+        letter-spacing: 10px;
+        text-transform: uppercase;
+        margin: 60px 0px 0px !important;
+        font-size: 1.4rem;
+        letter-spacing: 5px;
+    }
+    .tech-crew-container h1{
+        text-align: center !important;
+
+    }
+}
+        
+.home-container{
+    /* height: 100vh; */
+    background:url(./assets/home/background-home-mobile.jpg);
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    height: 100% !important;
+
+    header{
+        padding: 60px 0px 0px 18px;
+    }
+    .hero-container{
+        padding: 60px 15px 100px!important ;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .hero-content{
+        max-width: 600px;
+        width: 100%;
+        text-align: center;
+     }
+     .hero-content-1{
+        text-align: center;
+        margin: 0!important;
+        /* padding-bottom: 150px; */
+     }
+     .hero-content-1 h1{
+        margin: 0   !important;
+     }
+     .hero-content h1{
+        color: #fff;
+        /* padding: 50px; */
+        font-size: 7rem;
+        font-weight: 400;
+        font-family: 'Bellefair', serif;
+        margin: 4px 0px 10px !important;
+    }
+}
+ }
+
+
+ @media screen and (max-width: 390px) {
+    .home-container{
+        header{
+            padding: 40px 0px 0px 18px!important;
+        }
+        .hero-content h1{
+            color: #fff;
+            /* padding: 50px; */
+            font-size: 5rem !important;
+            font-weight: 400;
+            font-family: 'Bellefair', serif;
+            margin: 4px 0px 10px !important;
+        }
+    
+    } 
+    .destination-container{
+        .destination-cont .space-head-name{
+            font-size: 2.5rem !important;
+        }
+        .distance h2{
+            letter-spacing: 3px;
+        }
+        .space-content p{
+            line-height: 25px;
+            margin-bottom: 5px !important;
+        }
+    }
  }
