@@ -26,12 +26,12 @@ closeMenu.addEventListener('click', closeMenuValidation);
 
 
 
-let navActive = document.querySelector('.l-active');
-// let nav_before_active = window.getComputedStyle(navActive, '::before');
+// let navActive = document.querySelector('.l-active');
+// // let nav_before_active = window.getComputedStyle(navActive, '::before');
 
-const navLinks = document.querySelectorAll('nav ul li a');
-const navLink = document.querySelector('nav ul li a');
-let activeNav = document.querySelector('.nav.active');
+// const navLinks = document.querySelectorAll('nav ul li a');
+// const navLink = document.querySelector('nav ul li a');
+// let activeNav = document.querySelector('.nav.active');
 // navLinks.forEach((link) => {
 //     link.addEventListener('click', (e) => {
 //         // e.preventDefault();
